@@ -115,7 +115,7 @@ GObject introspection devel data for the lib%name.
 %{_datadir}/gir-1.0/Tuner-1.gir
 
 %files -n lib%name-gir
-%{_lib64}/girepository-1.0/Tuner-1.typelib
+%{_libdir}/girepository-1.0/Tuner-1.typelib
 
 %files -n lib%name-devel-doc
 %_datadir/doc/%name/*
