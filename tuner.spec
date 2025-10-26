@@ -93,12 +93,11 @@ GObject introspection devel data for the lib%name.
 
 %install
 %meson_install
-#find_lang --with-gnome %name
+%find_lang tuner
 
-%files 
-#-f %name.lang
+%files -f tuner.lang
 %_bindir/%name
-#_desktopdir/%app_id.desktop
+%{_datadir}/applications/org.altlinux.Tuner.desktop
 %_datadir/metainfo/%app_id.metainfo.xml
 %_iconsdir/hicolor/*/apps/%{app_id}*.svg
 %_datadir/glib-2.0/schemas/%app_id.gschema.xml
@@ -110,15 +109,13 @@ GObject introspection devel data for the lib%name.
 %files -n lib%name-devel
 %_libdir/lib%name-%api_ver.so
 %_includedir/%name-%api_ver.h
-#_pkgconfigdir/%name-%api_ver.pc
-#_vapidir/%name-%api_ver.deps
-#_vapidir/%name-%api_ver.vapi
+%{_libdir}/pkgconfig/tuner-1.pc
+%{_datadir}/vala/vapi/tuner-1.deps
+%{_datadir}/vala/vapi/tuner-1.vapi
+%{_datadir}/gir-1.0/Tuner-1.gir
 
 %files -n lib%name-gir
-#_typelibdir/%namespace-%api_ver.typelib
-
-%files -n lib%name-gir-devel
-#_girdir/%namespace-%api_ver.gir
+%{_lib64}/girepository-1.0/Tuner-1.typelib
 
 %files -n lib%name-devel-doc
 %_datadir/doc/%name/*
