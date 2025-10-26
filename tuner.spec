@@ -3,7 +3,8 @@
 %define namespace Tuner
 %define api_ver 1
 
-%def_enable docs
+#def_enable docs
+
 Name: tuner
 Version: 0.5.0
 Release: 1
