@@ -3,6 +3,10 @@
 %define namespace Tuner
 %define api_ver 1
 
+%define libname %mklibname tuner
+%define devname %mklibname -d tuner
+%define girname %mklibname tuner-gir
+
 #def_enable docs
 
 Name: tuner
@@ -38,51 +42,33 @@ You can create your own plugins without affecting the main program code.
 Easy creation of plugins working with dconf and unlimited plugin functionality
 thanks to libpeas.
 
-%package -n lib%name
+%package -n %{libname}
 Summary: Versatile library for creating extensible apps and plugins for them
 Group: System/Libraries
-Requires: libpeas2-python3-loader
+Requires: %{_lib}peas2
 
-%description -n lib%name
+%description -n %{libname}
 lib%name is a library designed to support both core application development
 and plugin integration. It provides several build-in widgets and API to
 create and extend pages. It also provides API to add plugins to your own app.
 
-%package -n lib%name-devel
+%package -n %{devname}
 Summary: Development files for lib%name
 Group: Development/C
-Requires: lib%name = %EVR
+Requires:	%{libname} = %{EVRD}
+Requires:	%{girname} = %{EVRD}
 
-%description -n lib%name-devel
+%description -n %{devname}
 This package contains development libraries and header files
 that are needed to write applications that use lib%name.
 
-%package -n lib%name-devel-doc
-Summary: Development documentation for lib%name
-Group: Development/Documentation
-Conflicts: lib%name < %version-%release
-BuildArch: noarch
-
-%description -n lib%name-devel-doc
-This package contains development documentation for the lib%name.
-
-%package -n lib%name-gir
+%package -n %{girname}
 Summary: GObject introspection data for the lib%name
 Group: System/Libraries
-Requires: lib%name = %EVR
+Requires:	%{libname} = %{EVRD}
 
-%description -n lib%name-gir
+%description -n %{girname}
 GObject introspection data for the lib%name.
-
-%package -n lib%name-gir-devel
-Summary: GObject introspection devel data for the lib%name
-Group: Development/Other
-BuildArch: noarch
-Requires: lib%name-devel = %EVR
-Requires: lib%name-gir = %EVR
-
-%description -n lib%name-gir-devel
-GObject introspection devel data for the lib%name.
 
 %prep
 %autosetup -n Tuner-%{version} -p1
@@ -96,26 +82,25 @@ GObject introspection devel data for the lib%name.
 %find_lang tuner
 
 %files -f tuner.lang
-%_bindir/%name
+%{_bindir}/%name
 %{_datadir}/applications/org.altlinux.Tuner.desktop
-%_datadir/metainfo/%app_id.metainfo.xml
-%_iconsdir/hicolor/*/apps/%{app_id}*.svg
-%_datadir/glib-2.0/schemas/%app_id.gschema.xml
+%{_datadir}/metainfo/%app_id.metainfo.xml
+%{_iconsdir}/hicolor/*/apps/%{app_id}*.svg
+%{_datadir}/glib-2.0/schemas/%app_id.gschema.xml
 %doc README.md
 
-%files -n lib%name
-%_libdir/lib%name-%api_ver.so.*
+%files -n %{libname}
+%{_libdir}/lib%name-%api_ver.so.*
+%files -n %{devname}
 
-%files -n lib%name-devel
-%_libdir/lib%name-%api_ver.so
-%_includedir/%name-%api_ver.h
+%doc %{_datadir}/doc/%{name}/*
+%{_libdir}/lib%name-%api_ver.so
+%{_includedir}/%name-%api_ver.h
 %{_libdir}/pkgconfig/tuner-1.pc
 %{_datadir}/vala/vapi/tuner-1.deps
 %{_datadir}/vala/vapi/tuner-1.vapi
 %{_datadir}/gir-1.0/Tuner-1.gir
 
-%files -n lib%name-gir
+%files -n %{girname}
 %{_libdir}/girepository-1.0/Tuner-1.typelib
 
-%files -n lib%name-devel-doc
-%_datadir/doc/%name/*
