@@ -118,7 +118,5 @@ GObject introspection devel data for the lib%name.
 %files -n lib%name-gir-devel
 %_girdir/%namespace-%api_ver.gir
 
-%if_enabled docs
 %files -n lib%name-devel-doc
 %_datadir/doc/%name/*
-%endif
