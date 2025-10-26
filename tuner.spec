@@ -84,7 +84,7 @@ Requires: lib%name-gir = %EVR
 GObject introspection devel data for the lib%name.
 
 %prep
-%setup
+%autosetup -n Tuner-%{version} -p1
 
 %build
 %meson
