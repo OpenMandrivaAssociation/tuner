@@ -21,9 +21,9 @@ BuildRequires: pkgconfig(blueprint-compiler)
 BuildRequires: pkgconfig(libadwaita-1)
 BuildRequires: pkgconfig(gee-0.8)
 BuildRequires: pkgconfig(libpeas-2)
-BuildRequires: gir(Peas) = 2
-BuildRequires: gir(Gee) = 0.8
-BuildRequires: gir(Adw) = 1
+#BuildRequires: gir(Peas) = 2
+#BuildRequires: gir(Gee) = 0.8
+#BuildRequires: gir(Adw) = 1
 BuildRequires: pkgconfig(gobject-introspection-1.0)
 
 %description
