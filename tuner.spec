@@ -93,9 +93,10 @@ GObject introspection devel data for the lib%name.
 
 %install
 %meson_install
-%find_lang --with-gnome %name
+#find_lang --with-gnome %name
 
-%files -f %name.lang
+%files 
+#-f %name.lang
 %_bindir/%name
 %_desktopdir/%app_id.desktop
 %_datadir/metainfo/%app_id.metainfo.xml
