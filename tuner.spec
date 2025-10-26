@@ -15,6 +15,7 @@ Url: https://altlinux.space/alt-gnome/Tuner
 # fetch from git
 Source0:  Tuner-%{version}.tar.xz
 
+BuildRequires: desktop-file-utils
 BuildRequires: meson
 BuildRequires: vala
 BuildRequires: pkgconfig(blueprint-compiler)
