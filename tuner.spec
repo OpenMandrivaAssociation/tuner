@@ -31,6 +31,10 @@ BuildRequires: pkgconfig(libpeas-2)
 #BuildRequires: gir(Adw) = 1
 BuildRequires: pkgconfig(gobject-introspection-1.0)
 
+Requires: libadwaita-common
+Requires: %{_lib}peas2-gir
+Requires: %{_lib}gee-gir0.8
+
 %description
 Tuner is the home for your additional system settings, components,
 applications, and whatever else you want!
