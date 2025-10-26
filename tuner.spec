@@ -98,7 +98,7 @@ GObject introspection devel data for the lib%name.
 %files 
 #-f %name.lang
 %_bindir/%name
-%_desktopdir/%app_id.desktop
+#_desktopdir/%app_id.desktop
 %_datadir/metainfo/%app_id.metainfo.xml
 %_iconsdir/hicolor/*/apps/%{app_id}*.svg
 %_datadir/glib-2.0/schemas/%app_id.gschema.xml
@@ -110,15 +110,15 @@ GObject introspection devel data for the lib%name.
 %files -n lib%name-devel
 %_libdir/lib%name-%api_ver.so
 %_includedir/%name-%api_ver.h
-%_pkgconfigdir/%name-%api_ver.pc
-%_vapidir/%name-%api_ver.deps
-%_vapidir/%name-%api_ver.vapi
+#_pkgconfigdir/%name-%api_ver.pc
+#_vapidir/%name-%api_ver.deps
+#_vapidir/%name-%api_ver.vapi
 
 %files -n lib%name-gir
-%_typelibdir/%namespace-%api_ver.typelib
+#_typelibdir/%namespace-%api_ver.typelib
 
 %files -n lib%name-gir-devel
-%_girdir/%namespace-%api_ver.gir
+#_girdir/%namespace-%api_ver.gir
 
 %files -n lib%name-devel-doc
 %_datadir/doc/%name/*
