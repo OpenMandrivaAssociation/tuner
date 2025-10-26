@@ -91,8 +91,8 @@ GObject introspection data for the lib%name.
 
 %files -n %{libname}
 %{_libdir}/lib%name-%api_ver.so.*
-%files -n %{devname}
 
+%files -n %{devname}
 %doc %{_datadir}/doc/%{name}/*
 %{_libdir}/lib%name-%api_ver.so
 %{_includedir}/%name-%api_ver.h
